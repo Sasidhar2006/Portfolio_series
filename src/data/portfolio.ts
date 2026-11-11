@@ -1,5 +1,5 @@
 /**
- * Central portfolio data — generated from Sushmita's resume (Sushmita_dasari.pdf).
+ * Central portfolio data — generated from Kokkiligadda Sasidhar's resume.
  * Every fact on the site comes from this file. Update it here and the whole site follows.
  * Nothing here should be added unless it appears on the resume.
  */
@@ -7,58 +7,60 @@
 export type Palette = { from: string; via: string; to: string; accent: string };
 
 export const profile = {
-  fullName: 'Dasari Venkata Ratna Sri Sushmita',
-  displayName: 'Sushmita Dasari',
-  firstName: 'SUSHMITA',
+  fullName: 'Kokkiligadda Sasidhar',
+  displayName: 'Kokkiligadda Sasidhar',
+  firstName: 'SASIDHAR',
   seriesTag: 'THE SERIES',
   /** Fictional studio card shown at the very start of the opening sequence. */
-  originalLabel: 'A DASARI ORIGINAL',
-  role: 'Full-Stack Developer',
-  tagline: ['Full-Stack Developer', 'AI / ML', 'Java'],
+  originalLabel: 'A SASIDHAR ORIGINAL',
+  role: 'MERN Full Stack Developer',
+  tagline: ['MERN Full Stack', 'Java', 'DSA'],
   intro:
-    'A B.Tech Artificial Intelligence & Machine Learning student (CGPA 9.10) and full-stack developer building AI-powered platforms, payment systems and multi-tenant SaaS with Java, Python, React, Node.js and Docker.',
-  location: 'Surampalem, Andhra Pradesh',
-  email: 'sushmitadasari17@gmail.com',
+    'Aspiring MERN Full Stack Developer and B.Tech Computer Science & Engineering student (CGPA 8.63) building responsive and scalable full-stack web applications with MongoDB, Express.js, React.js, Node.js, Java, and consistent DSA practice.',
+  location: 'Machilipatnam, Andhra Pradesh',
+  fullAddress: 'Saradanagar, Machilipatnam, Andhra Pradesh, India',
+  phone: '9705481214',
+  email: 'sasidharkokkiligadda0@gmail.com',
   links: {
-    linkedin: 'https://www.linkedin.com/in/sushmita-dasari-227a40284/',
-    github: 'https://github.com/Sushmitadasari',
+    // Resume PDF links "Linkedin" to https://linkedin.com — update with your personal LinkedIn URL when ready.
+    linkedin: 'https://linkedin.com',
+    github: 'https://github.com/Sasidhar2006',
   },
-  resumePdf: '/assets/Sushmita_Dasari_Resume.pdf',
+  resumePdf: '/assets/Kokkiligadda_Sasidhar_Resume.pdf',
   portrait: {
     src: '/assets/portrait-720.webp',
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
-    alt: 'Portrait of Sushmita Dasari',
+    alt: 'Portrait of Kokkiligadda Sasidhar',
   },
-  interests: ['System Design', 'Cloud Computing (AWS)', 'Machine Learning'],
+  interests: ['Data Structures & Algorithms', 'Database Management Systems', 'Operating Systems', 'Computer Networks'],
 };
 
-export const education = [
+export type EducationEntry = {
+  school: string;
+  place?: string;
+  degree: string;
+  period: string;
+  score: string;
+};
+
+export const education: EducationEntry[] = [
   {
-    school: 'Aditya Engineering College',
-    place: 'Surampalem',
-    degree: 'Bachelor of Technology — Artificial Intelligence and Machine Learning',
-    period: 'October 2023 – Present',
-    score: 'CGPA 9.10',
-  },
-  {
-    school: 'Sri Chaitanya Junior College',
-    place: 'Kakinada',
-    degree: 'BIEAP — MPC',
-    period: 'June 2021 – May 2023',
-    score: 'Score 925/1000',
+    school: 'Vishnu Institute of Technology',
+    degree: 'B.Tech Computer Science and Engineering',
+    period: '2023 – 2027',
+    score: 'CGPA: 8.63',
   },
 ];
 
 export const experience = [
   {
-    company: 'Technical Hub Pvt Ltd',
-    role: 'Trainee',
-    place: 'Surampalem, AP',
-    period: 'May 2025 – June 2026',
+    company: 'SmartBridge Educational Services Pvt. Ltd. (in collaboration with APSCHE)',
+    role: 'Full Stack Developer (MERN Stack) Virtual Intern',
+    place: 'Virtual',
+    period: '2-Month / 120-Hours',
     points: [
-      'Completed one year of intensive Full-Stack Development (FSD) training covering frontend, backend, database integration, and deployment workflows.',
-      'Developed responsive and functional web applications by implementing user interfaces, server-side logic, and database connectivity.',
-      'Deployed and managed web applications while applying version control, debugging, and end-to-end development practices.',
+      'Gained hands-on practical experience in MongoDB, Express.js, React.js, and Node.js (MERN) while strengthening skills in full-stack web application development.',
+      'Successfully completed all internship requirements, building scalable project modules and earning a Certificate of Completion.',
     ],
   },
 ];
@@ -77,95 +79,102 @@ export type Project = {
   metrics: Metric[];
   /** Omit when the repository isn't public — the GitHub button is hidden instead of linking to a 404. */
   github?: string;
+  /** Optional live deployment link from the resume. */
+  demo?: string;
   palette: Palette;
-  motif: 'shield' | 'flow' | 'tenants';
+  motif: 'resume' | 'medical' | 'network';
 };
 
 export const projects: Project[] = [
   {
-    id: 'policyguard-ai',
-    title: 'PolicyGuard AI',
-    year: '2026',
-    genre: 'AI • NLP • LLM',
-    logline: 'An AI-powered policy analysis platform across web, browser extension, mobile and desktop applications.',
-    stack: ['Python', 'NLP', 'LLM', 'REST API'],
+    id: 'resume-analyzer',
+    title: 'Resume Analyzer',
+    year: 'LIVE',
+    genre: 'MERN SaaS • Gemini 1.5 Pro • Firebase',
+    logline:
+      'A MERN stack SaaS application integrating Google Gemini 1.5 Pro for automated resume generation, AI-powered ATS checks, and live PDF export.',
+    stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Firebase', 'Gemini 1.5 Pro', 'Tailwind CSS', 'Framer Motion'],
     build: [
-      'Built an AI-powered policy analysis platform across web, browser extension, mobile, and desktop applications, processing 500+ policy documents with 92% accuracy and reducing manual review time by 60% across 8 policy categories.',
-      'Engineered LLM-based Q&A, key-information extraction, and REST API integration for 10+ document types, enabling real-time policy insights and reducing decision turnaround time by 45%.',
+      'Developed a MERN stack SaaS application with Firebase for secure Google OAuth and user management.',
+      'Integrated Google Gemini 1.5 Pro to automate resume generation, featuring an AI-powered ATS checker and job description analyzer.',
+      'Designed a responsive UI with Tailwind CSS and Framer Motion, featuring a live resume preview, analytics dashboard, and high-quality PDF generation.',
     ],
     features: [
-      'LLM-based Q&A over policy documents',
-      'Key-information extraction',
-      'REST API integration for 10+ document types',
-      'Web, browser extension, mobile & desktop apps',
-      'Real-time policy insights',
+      'Firebase Google OAuth & user management',
+      'Gemini 1.5 Pro automated resume generation',
+      'AI-powered ATS checker & job description analyzer',
+      'Live resume preview & analytics dashboard',
+      'High-quality PDF generation',
     ],
     metrics: [
-      { value: '500+', label: 'policy documents processed' },
-      { value: '92%', label: 'accuracy' },
-      { value: '60%', label: 'less manual review time' },
-      { value: '45%', label: 'faster decision turnaround' },
-      { value: '8', label: 'policy categories' },
+      { value: 'MERN', label: 'Full-stack SaaS architecture' },
+      { value: 'Gemini', label: '1.5 Pro AI & ATS engine' },
+      { value: 'OAuth', label: 'Firebase Google auth' },
+      { value: 'Live', label: 'Preview, analytics & PDF' },
     ],
-    // The resume links to https://github.com/Sushmitadasari/PolicyGuard-AI, which is not public yet (404).
-    // Add `github: 'https://github.com/Sushmitadasari/PolicyGuard-AI',` back once the repo is public.
+    github: 'https://github.com/Sasidhar2006/resume_analyze',
+    demo: 'https://resume-analyze-client.onrender.com',
     palette: { from: '#2a0610', via: '#7a0f24', to: '#0b0710', accent: '#ff3d5a' },
-    motif: 'shield',
+    motif: 'resume',
   },
   {
-    id: 'payment-gateway',
-    title: 'Payment Gateway System',
-    year: '2026',
-    genre: 'Full-Stack • Fintech • Microservices',
-    logline: 'A full-stack UPI & card payment gateway built around a strict payment state machine.',
-    stack: ['Node.js', 'Express', 'PostgreSQL', 'React', 'Docker'],
+    id: 'book-a-doctor',
+    title: 'Book a Doctor',
+    year: 'LIVE',
+    genre: 'Full-Stack • Healthcare • REST API',
+    logline:
+      'A full-stack healthcare booking platform with JWT authentication, role-based access control, and RESTful APIs for doctor management and scheduling.',
+    stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JWT', 'REST APIs'],
     build: [
-      'Built full-stack UPI & card payment gateway processing 1,000+ transactions at 99.8% uptime with a strict payment state machine (processing → success/failed).',
-      'Dockerized microservice architecture cut deployment setup by 70%; backend optimizations reduced API response time by 40% and tripled throughput under load.',
+      'Developed a full-stack Book a Doctor application.',
+      'Implemented JWT authentication, role-based access, and secure appointment booking.',
+      'Built RESTful APIs for doctor management and appointment scheduling.',
+      'Designed a responsive UI for scalable healthcare data management.',
     ],
     features: [
-      'UPI & card payments',
-      'Strict payment state machine (processing → success / failed)',
-      'Dockerized microservice architecture',
-      'Backend optimizations for load',
+      'JWT authentication & role-based access',
+      'Secure appointment booking flow',
+      'RESTful APIs for doctor management & scheduling',
+      'Responsive UI for scalable healthcare data',
     ],
     metrics: [
-      { value: '1,000+', label: 'transactions processed' },
-      { value: '99.8%', label: 'uptime' },
-      { value: '70%', label: 'less deployment setup' },
-      { value: '40%', label: 'faster API response' },
-      { value: '3×', label: 'throughput under load' },
+      { value: 'JWT', label: 'Secure token authentication' },
+      { value: 'RBAC', label: 'Role-based access control' },
+      { value: 'REST', label: 'Doctor & booking APIs' },
+      { value: 'Live', label: 'Deployed healthcare UI' },
     ],
-    github: 'https://github.com/Sushmitadasari/Payment-gateway-system-Project',
+    github: 'https://github.com/Sasidhar2006/sasi',
+    demo: 'https://doctor-frontend-7r4j.onrender.com',
     palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#ffb547' },
-    motif: 'flow',
+    motif: 'medical',
   },
   {
-    id: 'multi-tenant-saas',
-    title: 'Multi-Tenant SaaS Platform',
-    year: '2026',
-    genre: 'SaaS • Security • DevOps',
-    logline: 'Shared-database multi-tenancy with strict tenant isolation and 4-level JWT/RBAC.',
-    stack: ['Node.js', 'React', 'PostgreSQL', 'Docker Compose'],
+    id: 'alumni-connect',
+    title: 'Alumni-Connect',
+    year: 'SIH',
+    genre: 'MERN • Smart India Hackathon',
+    logline:
+      'Built for Smart India Hackathon (SIH) to strengthen student–alumni communication through mentorship requests, alumni search, and job/internship postings.',
+    stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
     build: [
-      'Architected shared-database multi-tenancy for 50+ concurrent tenants with strict tenant_id isolation and 4-level JWT/RBAC, achieving zero unauthorized-access incidents across 200+ users.',
-      'Implemented Docker Compose one-command deployment, reducing environment setup time from 45 minutes to under 2 minutes.',
+      'Developed for Smart India Hackathon (SIH) to strengthen communication between students and alumni.',
+      'Implemented secure user authentication, mentorship requests, and job/internship posting features.',
+      'Enabled networking through alumni search and career guidance features.',
     ],
     features: [
-      'Shared-database multi-tenancy',
-      'Strict tenant_id isolation',
-      '4-level JWT / RBAC',
-      'One-command Docker Compose deployment',
+      'Built for Smart India Hackathon (SIH)',
+      'Secure user authentication',
+      'Mentorship requests & alumni search',
+      'Job/internship postings & career guidance',
     ],
     metrics: [
-      { value: '50+', label: 'concurrent tenants' },
-      { value: '200+', label: 'users' },
-      { value: '0', label: 'unauthorized-access incidents' },
-      { value: '45m → <2m', label: 'environment setup time' },
+      { value: 'SIH', label: 'Smart India Hackathon build' },
+      { value: 'MERN', label: 'React, Node, Express, MongoDB' },
+      { value: 'Mentor', label: 'Mentorship & career guidance' },
+      { value: 'Jobs', label: 'Job & internship postings' },
     ],
-    github: 'https://github.com/Sushmitadasari/Multi-Tenant-SaaS-Platform',
     palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
-    motif: 'tenants',
+    motif: 'network',
   },
 ];
 
@@ -176,66 +185,47 @@ export type Achievement = {
   detail: string;
   laurel: string;
   link?: string;
+  linkLabel?: string;
 };
 
 export const achievements: Achievement[] = [
   {
-    id: 'algouniversity',
-    title: 'Tech Fellow',
-    org: 'AlgoUniversity',
-    detail: 'Selected through competitive national selection — advanced DSA, algorithm optimization, and competitive coding.',
-    laurel: 'National Selection',
+    id: 'sih',
+    title: 'Smart India Hackathon',
+    org: 'SIH Participant',
+    detail: 'Participated in Smart India Hackathon (SIH), building Alumni-Connect to strengthen communication between students and alumni.',
+    laurel: 'Hackathon',
   },
   {
-    id: 'flipkart-grid',
-    title: 'Semi-Finalist',
-    org: 'Flipkart GRiD 7.0',
-    detail: 'Competed among top national engineering talent.',
-    laurel: 'Semi-Finalist',
-    link: 'https://drive.google.com/file/d/16pXA2hssyJqlYMr27wfi6U4bjKDLvh9f/view?usp=drive_link',
+    id: 'smartbridge-intern',
+    title: '120-Hour MERN Intern',
+    org: 'SmartBridge × APSCHE',
+    detail: 'Completed a 2-Month / 120-Hours Virtual Internship building scalable MERN project modules and earning a Certificate of Completion.',
+    laurel: 'Virtual Internship',
   },
   {
-    id: 'branch-topper',
-    title: 'AIML Branch Topper',
-    org: 'B.Tech AI & ML',
-    detail: '9.24 SGPA for the semester.',
-    laurel: 'Branch Topper',
+    id: 'btech-cse',
+    title: '8.63 CGPA',
+    org: 'Vishnu Institute of Technology',
+    detail: 'Pursuing B.Tech in Computer Science and Engineering (2023 – 2027) with core focus on DSA, DBMS, OS, and Computer Networks.',
+    laurel: 'B.Tech CSE',
   },
   {
-    id: 'competitive-coding',
-    title: '850+ Problems Solved',
-    org: 'LeetCode • GFG • CodeChef',
-    detail: 'LeetCode: 350+ DSA problems (peak rating 1442). GFG: 300+ problems (rating 1436). CodeChef: 200+ problems.',
-    laurel: 'Competitive Coding',
-  },
-  {
-    id: 'hackerrank',
-    title: '5-Star Badges',
-    org: 'HackerRank',
-    detail: '5-star badges in C, Python, Java, and SQL.',
-    laurel: 'Four Languages',
+    id: 'live-deployments',
+    title: '2 Live Productions',
+    org: 'MERN & AI Deployments',
+    detail: 'Shipped Resume Analyzer (Gemini 1.5 Pro SaaS) and Book a Doctor (JWT & RBAC healthcare platform) as live web applications.',
+    laurel: 'Shipped Live',
+    link: 'https://resume-analyze-client.onrender.com',
+    linkLabel: 'View live demo ↗',
   },
 ];
 
-export type Certification = { issuer: string; name: string; link: string };
+export type Certification = { issuer?: string; name: string; link?: string };
 
 export const certifications: Certification[] = [
-  { issuer: 'NPTEL', name: 'Database Management System', link: 'https://drive.google.com/file/d/1MqkJHchXeaGD4S8mzPmEGxEYddAsxAjN/view?usp=drive_link' },
-  { issuer: 'NPTEL', name: 'Fundamentals of Artificial Intelligence', link: 'https://drive.google.com/file/d/1GqyUQ-lrE-bHaN457t6fIdssgGG4HMXf/view?usp=drive_link' },
-  { issuer: 'NPTEL', name: 'Deep Learning', link: 'https://drive.google.com/file/d/1PWSRP5SQDPzkoTCF3A24eIJoSpTwgsff/view?usp=sharing' },
-  { issuer: 'AWS', name: 'AWS Certified AI Practitioner', link: 'https://drive.google.com/file/d/1h8e5p0a9T6f5gBaOP2ROfwWHZfkkspGn/view?usp=drive_link' },
-  { issuer: 'AWS', name: 'AWS Academy Graduate – Cloud Foundations', link: 'https://www.credly.com/badges/2d4810f9-3dbe-444d-99b9-61312ea5e7df/public_url' },
-  { issuer: 'MongoDB', name: 'MongoDB Certified Associate Developer', link: 'https://www.credly.com/badges/fd3362bd-743a-4c4d-a68e-b1fdc5d46811/public_url' },
-  { issuer: 'GitHub', name: 'GitHub Foundations', link: 'https://drive.google.com/file/d/1o0fkCAMRWTg1oMwxlqu6t6wnOpBv66Vq/view?usp=sharing' },
-  { issuer: 'Pearson', name: 'IT Specialist – HTML and CSS', link: 'https://www.credly.com/badges/e4a55298-e396-41d8-a032-283aafe9fab7/public_url' },
-  { issuer: 'Oracle', name: 'Java Certified Foundations Associate', link: 'https://drive.google.com/file/d/1g-yyceHtLg_k2RWiOIJqH0MMcGlaH90P/view?usp=sharing' },
-  { issuer: 'Oracle', name: 'Oracle Certified Foundations Associate – Database', link: 'https://drive.google.com/file/d/10-DzabbcH2vHrI6bAohoT8czKRZMa2kV/view?usp=drive_link' },
-  { issuer: 'Cisco', name: 'HTML Essentials', link: 'https://www.credly.com/badges/eb27ca95-3b2a-4948-bef9-0385d1d49055/public_url' },
-  { issuer: 'Cisco', name: 'CSS Essentials', link: 'https://www.credly.com/badges/3b37497f-6a61-4889-af3c-ed337a460a0b/public_url' },
-  { issuer: 'Cisco', name: 'JavaScript Essentials 1', link: 'https://www.credly.com/badges/9cdd4d55-6ecc-463f-b254-811ccdd0539c/public_url' },
-  { issuer: 'Cisco', name: 'JavaScript Essentials 2', link: 'https://www.credly.com/badges/0e1b036e-4318-4c8e-b750-2aca77314442/public_url' },
-  { issuer: 'Cisco', name: 'Python Essentials 1', link: 'https://www.credly.com/badges/0e21e3eb-d8ef-4770-95d7-dcbd6f8696b1/public_url' },
-  { issuer: 'Udemy', name: 'Microsoft Azure Hands-On Training (AZ-900, AZ-104, AZ-305)', link: 'https://drive.google.com/file/d/1KrXClhY0nJ3Acxs7DioNf4Q1rpaMvgPT/view?usp=sharing' },
+  { issuer: 'Certification', name: 'Programming in Java' },
+  { issuer: 'Certification', name: 'Data Structures and Algorithms' },
 ];
 
 export type Skill = { name: string; mono: string; note?: string };
@@ -245,110 +235,93 @@ export const skillCategories: SkillCategory[] = [
   {
     id: 'languages',
     title: 'Languages',
-    subtitle: 'Java is the primary language',
+    subtitle: 'Core programming & web languages',
     skills: [
       { name: 'Java', mono: 'Jv', note: 'Primary' },
-      { name: 'Python', mono: 'Py' },
-      { name: 'C', mono: 'C' },
-      { name: 'C++', mono: 'C+' },
-    ],
-  },
-  {
-    id: 'frontend',
-    title: 'Frontend',
-    subtitle: 'Interfaces & the web platform',
-    skills: [
-      { name: 'React', mono: 'Re' },
+      { name: 'JavaScript', mono: 'Js' },
       { name: 'HTML', mono: 'Ht' },
       { name: 'CSS', mono: 'Cs' },
-      { name: 'JavaScript', mono: 'Js' },
+      { name: 'SQL', mono: 'Sq' },
     ],
   },
   {
-    id: 'backend',
-    title: 'Backend',
-    subtitle: 'Server-side logic',
+    id: 'mern',
+    title: 'Frameworks / Stack',
+    subtitle: 'Full-stack MERN & UI libraries',
     skills: [
-      { name: 'Node.js', mono: 'No' },
-      { name: 'Express.js', mono: 'Ex' },
-    ],
-  },
-  {
-    id: 'infra',
-    title: 'Infra & Tools',
-    subtitle: 'Shipping & architecture',
-    skills: [
-      { name: 'Docker', mono: 'Dk' },
-      { name: 'Docker Compose', mono: 'Dc' },
-      { name: 'REST APIs', mono: 'Ap' },
-      { name: 'Microservices', mono: 'Ms' },
-      { name: 'JWT Auth', mono: 'Jw' },
-      { name: 'Git / GitHub', mono: 'Gt' },
-      { name: 'Postman', mono: 'Pm' },
+      { name: 'MongoDB', mono: 'Mg', note: 'MERN' },
+      { name: 'Express.js', mono: 'Ex', note: 'MERN' },
+      { name: 'React.js', mono: 'Re', note: 'MERN' },
+      { name: 'Node.js', mono: 'No', note: 'MERN' },
+      { name: 'Tailwind CSS', mono: 'Tw' },
+      { name: 'Framer Motion', mono: 'Fm' },
     ],
   },
   {
     id: 'databases',
     title: 'Databases',
-    subtitle: 'Indexing • Normalization',
+    subtitle: 'NoSQL & relational data systems',
     skills: [
-      { name: 'PostgreSQL', mono: 'Pg' },
       { name: 'MongoDB', mono: 'Mg' },
       { name: 'MySQL', mono: 'My' },
+      { name: 'SQL', mono: 'Sq' },
     ],
   },
   {
-    id: 'fundamentals',
-    title: 'CS Fundamentals',
-    subtitle: 'The foundations',
+    id: 'tools',
+    title: 'Tools & Tech',
+    subtitle: 'Workflow, APIs, auth & AI integration',
     skills: [
-      { name: 'DSA', mono: 'Ds' },
-      { name: 'OS', mono: 'Os' },
-      { name: 'CN', mono: 'Cn' },
+      { name: 'Git / GitHub', mono: 'Gt' },
+      { name: 'VS Code', mono: 'Vs' },
+      { name: 'Postman', mono: 'Pm' },
+      { name: 'Firebase', mono: 'Fb' },
+      { name: 'Gemini 1.5 Pro', mono: 'Gm' },
+      { name: 'JWT Auth', mono: 'Jw' },
+      { name: 'REST APIs', mono: 'Ap' },
+    ],
+  },
+  {
+    id: 'core-subjects',
+    title: 'Core Subjects',
+    subtitle: 'Computer Science foundations',
+    skills: [
+      { name: 'DSA', mono: 'Ds', note: 'Certified' },
       { name: 'DBMS', mono: 'Db' },
-      { name: 'OOPs', mono: 'Oo' },
-      { name: 'Collections', mono: 'Co' },
-      { name: 'Multithreading', mono: 'Mt' },
-    ],
-  },
-  {
-    id: 'interests',
-    title: 'Interests',
-    subtitle: 'Coming soon to the series',
-    skills: [
-      { name: 'System Design', mono: 'Sd' },
-      { name: 'Cloud Computing (AWS)', mono: 'Aw' },
-      { name: 'Machine Learning', mono: 'Ml' },
+      { name: 'Operating Systems', mono: 'Os' },
+      { name: 'Computer Networks', mono: 'Cn' },
     ],
   },
 ];
 
 /**
  * Factual cross-references shown when a skill card is hovered/tapped:
- * where the skill appears in the projects, certifications or achievements on the resume.
+ * where the skill appears in the projects, experience, or certifications on the resume.
  */
 export const skillEvidence: Record<string, string[]> = {
-  Java: ['Oracle Java Certified Foundations Associate', 'HackerRank 5-star'],
-  Python: ['PolicyGuard AI', 'Cisco Python Essentials 1', 'HackerRank 5-star'],
-  C: ['HackerRank 5-star'],
-  React: ['Payment Gateway System', 'Multi-Tenant SaaS Platform'],
-  HTML: ['Pearson IT Specialist – HTML and CSS', 'Cisco HTML Essentials'],
-  CSS: ['Pearson IT Specialist – HTML and CSS', 'Cisco CSS Essentials'],
-  JavaScript: ['Cisco JavaScript Essentials 1 & 2'],
-  'Node.js': ['Payment Gateway System', 'Multi-Tenant SaaS Platform'],
-  'Express.js': ['Payment Gateway System'],
-  Docker: ['Payment Gateway System'],
-  'Docker Compose': ['Multi-Tenant SaaS Platform'],
-  'REST APIs': ['PolicyGuard AI'],
-  Microservices: ['Payment Gateway System'],
-  'JWT Auth': ['Multi-Tenant SaaS Platform'],
-  'Git / GitHub': ['GitHub Foundations'],
-  PostgreSQL: ['Payment Gateway System', 'Multi-Tenant SaaS Platform'],
-  MongoDB: ['MongoDB Certified Associate Developer'],
-  DBMS: ['NPTEL Database Management System', 'Oracle Database Foundations'],
-  DSA: ['AlgoUniversity Tech Fellow', '850+ problems solved'],
-  'Cloud Computing (AWS)': ['AWS Certified AI Practitioner', 'AWS Academy Cloud Foundations'],
-  'Machine Learning': ['B.Tech AI & ML', 'NPTEL Deep Learning'],
+  Java: ['Programming in Java Certification', 'Profile Summary'],
+  JavaScript: ['MERN Stack Projects', 'Profile Summary'],
+  HTML: ['Responsive Web UI', 'Profile Summary'],
+  CSS: ['Responsive Web UI', 'Profile Summary'],
+  SQL: ['MySQL & DBMS', 'Profile Summary'],
+  MongoDB: ['Resume Analyzer', 'Book a Doctor', 'Alumni-Connect', 'SmartBridge MERN Intern'],
+  'Express.js': ['Resume Analyzer', 'Book a Doctor', 'Alumni-Connect', 'SmartBridge MERN Intern'],
+  'React.js': ['Resume Analyzer', 'Book a Doctor', 'Alumni-Connect', 'SmartBridge MERN Intern'],
+  'Node.js': ['Resume Analyzer', 'Book a Doctor', 'Alumni-Connect', 'SmartBridge MERN Intern'],
+  'Tailwind CSS': ['Resume Analyzer'],
+  'Framer Motion': ['Resume Analyzer'],
+  MySQL: ['Technical Skills — Databases'],
+  'Git / GitHub': ['Resume Analyzer Repo', 'Book a Doctor Repo', 'Profile Summary'],
+  'VS Code': ['Technical Skills — Tools & Technologies'],
+  Postman: ['API Testing & REST Workflows'],
+  Firebase: ['Resume Analyzer — Google OAuth & User Management'],
+  'Gemini 1.5 Pro': ['Resume Analyzer — AI ATS Checker & JD Analyzer'],
+  'JWT Auth': ['Book a Doctor — Role-Based Access'],
+  'REST APIs': ['Book a Doctor — Doctor Management & Scheduling'],
+  DSA: ['Data Structures and Algorithms Certification', 'Consistent Competitive Programming'],
+  DBMS: ['Core Subjects', 'MongoDB & MySQL'],
+  'Operating Systems': ['B.Tech CSE Core Subjects'],
+  'Computer Networks': ['B.Tech CSE Core Subjects'],
 };
 
 export type Episode = {
@@ -377,127 +350,103 @@ const jade: Palette = { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: 
 export const seasons: Season[] = [
   {
     number: 1,
-    title: 'The Beginning',
-    period: '2021 – 2023',
-    synopsis: 'Intermediate years at Sri Chaitanya Junior College, Kakinada — Mathematics, Physics and Chemistry.',
+    title: 'The Foundation',
+    period: '2023 – 2027',
+    synopsis: 'B.Tech in Computer Science and Engineering at Vishnu Institute of Technology — building strong CS core subjects and an 8.63 CGPA.',
     episodes: [
       {
         code: 'S01 E01',
-        title: 'The Foundation',
-        description: 'BIEAP, MPC at Sri Chaitanya Junior College, Kakinada — finishing with a score of 925/1000.',
-        tags: ['MPC', 'BIEAP'],
-        runtime: 'Jun 2021 – May 2023',
+        title: 'Computer Science Core',
+        description: 'Pursuing B.Tech Computer Science and Engineering at Vishnu Institute of Technology with a CGPA of 8.63.',
+        tags: ['B.Tech CSE', 'CGPA 8.63'],
+        runtime: '2023 – 2027',
+        palette: violet,
+      },
+      {
+        code: 'S01 E02',
+        title: 'CS Fundamentals',
+        description: 'Studying Data Structures and Algorithms (DSA), Database Management Systems (DBMS), Operating Systems, and Computer Networks.',
+        tags: ['DSA', 'DBMS', 'OS', 'CN'],
+        runtime: 'Core Subjects',
         palette: amber,
+      },
+      {
+        code: 'S01 E03',
+        title: 'Java & Algorithms',
+        description: 'Earned certifications in Programming in Java and Data Structures and Algorithms with consistent competitive programming practice.',
+        tags: ['Java', 'DSA', 'Competitive Coding'],
+        runtime: 'Certified',
+        palette: jade,
       },
     ],
   },
   {
     number: 2,
-    title: 'Enter: AI & ML',
-    period: '2023 – Present',
-    synopsis: 'B.Tech in Artificial Intelligence and Machine Learning at Aditya Engineering College, Surampalem.',
+    title: 'The Internship Arc',
+    period: '2-Month / 120-Hours',
+    synopsis: 'Virtual Internship in Full Stack Development (MERN Stack) with SmartBridge Educational Services Pvt. Ltd. in collaboration with APSCHE.',
     episodes: [
       {
         code: 'S02 E01',
-        title: 'The Engineer',
-        description: 'Bachelor of Technology in Artificial Intelligence and Machine Learning — CGPA 9.10.',
-        tags: ['B.Tech', 'AI & ML', 'CGPA 9.10'],
-        runtime: 'Oct 2023 – Present',
-        palette: violet,
+        title: 'MERN Stack Hands-On',
+        description: 'Gained practical experience in MongoDB, Express.js, React.js, and Node.js while strengthening full-stack web application skills.',
+        tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
+        runtime: 'SmartBridge × APSCHE',
+        palette: ocean,
       },
       {
         code: 'S02 E02',
-        title: 'The Topper',
-        description: 'AIML Branch Topper with a 9.24 SGPA for the semester.',
-        tags: ['9.24 SGPA', 'Branch Topper'],
-        runtime: 'One semester',
-        palette: crimson,
-      },
-      {
-        code: 'S02 E03',
-        title: 'The Problem Solver',
-        description: 'LeetCode 350+ (peak 1442), GFG 300+ (1436), CodeChef 200+ and HackerRank 5-star badges in C, Python, Java and SQL.',
-        tags: ['DSA', 'LeetCode', 'GFG', 'CodeChef', 'HackerRank'],
-        runtime: '850+ problems',
+        title: 'Scalable Modules',
+        description: 'Successfully completed all 120-hour internship requirements, building scalable project modules and earning a Certificate of Completion.',
+        tags: ['120-Hours', 'Virtual', 'Completed'],
+        runtime: 'Certificate Earned',
         palette: jade,
       },
     ],
   },
   {
     number: 3,
-    title: 'Learning to Build',
-    period: '2025 – 2026',
-    synopsis: 'One year of intensive Full-Stack Development training as a Trainee at Technical Hub Pvt Ltd.',
+    title: 'Shipping Originals',
+    period: 'Full-Stack Builds',
+    synopsis: 'Three MERN productions — an AI resume analyzer SaaS, a healthcare booking system, and a Smart India Hackathon alumni network.',
     episodes: [
       {
         code: 'S03 E01',
-        title: 'The Trainee',
-        description: 'Intensive Full-Stack Development training covering frontend, backend, database integration and deployment workflows.',
-        tags: ['FSD', 'Frontend', 'Backend', 'Databases'],
-        runtime: 'May 2025 – Jun 2026',
-        palette: ocean,
+        title: 'Resume Analyzer',
+        description: 'MERN SaaS with Firebase Google OAuth, Google Gemini 1.5 Pro ATS & JD analysis, Tailwind CSS + Framer Motion UI, and PDF generation.',
+        tags: ['MERN', 'Gemini 1.5 Pro', 'Firebase'],
+        runtime: 'Live Demo',
+        palette: crimson,
       },
       {
         code: 'S03 E02',
-        title: 'The Developer',
-        description: 'Developed responsive web applications — user interfaces, server-side logic and database connectivity.',
-        tags: ['React', 'Node.js', 'Express.js'],
-        runtime: 'Technical Hub',
-        palette: violet,
+        title: 'Book a Doctor',
+        description: 'Full-stack healthcare booking app with JWT authentication, role-based access, RESTful APIs, and responsive data management.',
+        tags: ['MERN', 'JWT', 'REST APIs'],
+        runtime: 'Live Demo',
+        palette: amber,
       },
       {
         code: 'S03 E03',
-        title: 'The Deployer',
-        description: 'Deployed and managed web applications with version control, debugging and end-to-end development practices.',
-        tags: ['Git / GitHub', 'Deployment'],
-        runtime: 'Technical Hub',
-        palette: jade,
+        title: 'Alumni-Connect',
+        description: 'Built for Smart India Hackathon (SIH) with secure authentication, mentorship requests, alumni search, and job/internship postings.',
+        tags: ['SIH', 'MERN', 'Networking'],
+        runtime: 'Hackathon',
+        palette: ocean,
       },
     ],
   },
   {
     number: 4,
-    title: 'Building Real Products',
-    period: '2026',
-    synopsis: 'Three Originals — an AI platform, a payment gateway and a multi-tenant SaaS — plus national-level recognition.',
+    title: 'Now Streaming',
+    period: 'Current Focus',
+    synopsis: 'Building responsive and scalable full-stack web applications while sharpening Data Structures and Algorithms.',
     episodes: [
       {
         code: 'S04 E01',
-        title: 'The AI Builder',
-        description: 'PolicyGuard AI — LLM-based Q&A and key-information extraction across 500+ policy documents at 92% accuracy.',
-        tags: ['Python', 'NLP', 'LLM'],
-        runtime: '2026',
-        palette: crimson,
-      },
-      {
-        code: 'S04 E02',
-        title: 'The Architect',
-        description: 'Payment Gateway System and Multi-Tenant SaaS Platform — state machines, microservices, tenant isolation and RBAC.',
-        tags: ['Node.js', 'PostgreSQL', 'Docker'],
-        runtime: '2026',
-        palette: amber,
-      },
-      {
-        code: 'S04 E03',
-        title: 'The Fellow',
-        description: 'Selected as a Tech Fellow at AlgoUniversity and reached the Semi-Finals of Flipkart GRiD 7.0.',
-        tags: ['AlgoUniversity', 'Flipkart GRiD 7.0'],
-        runtime: 'National stage',
-        palette: ocean,
-      },
-    ],
-  },
-  {
-    number: 5,
-    title: "What's Next",
-    period: 'Now streaming',
-    synopsis: 'The interests on the resume point to the next arc of the story.',
-    episodes: [
-      {
-        code: 'S05 E01',
-        title: 'The Next Chapter',
-        description: 'Exploring System Design, Cloud Computing (AWS) and Machine Learning.',
-        tags: ['System Design', 'AWS', 'Machine Learning'],
+        title: 'The Next Episode',
+        description: 'Continuing MERN full-stack development, Java & SQL engineering, and consistent competitive programming practice.',
+        tags: ['MERN Full Stack', 'Java', 'DSA'],
         runtime: 'In production',
         palette: violet,
       },
@@ -508,16 +457,16 @@ export const seasons: Season[] = [
 export type TopPick = { label: string; title: string; detail: string; palette: Palette };
 
 export const topPicks: TopPick[] = [
-  { label: 'Primary language', title: 'Java', detail: 'Listed as primary on the resume • Oracle certified', palette: amber },
-  { label: 'The AI Original', title: 'PolicyGuard AI', detail: '500+ documents • 92% accuracy', palette: crimson },
-  { label: 'Biggest stage', title: 'Flipkart GRiD 7.0', detail: 'Semi-Finalist', palette: ocean },
-  { label: 'National selection', title: 'AlgoUniversity', detail: 'Tech Fellow', palette: violet },
-  { label: 'Academic high', title: 'Branch Topper', detail: '9.24 SGPA in AI & ML', palette: jade },
-  { label: 'Cloud credential', title: 'AWS AI Practitioner', detail: 'AWS Certified', palette: amber },
-  { label: 'Problems solved', title: '850+', detail: 'LeetCode 350+ • GFG 300+ • CodeChef 200+', palette: crimson },
-  { label: 'The training arc', title: '1 Year of FSD', detail: 'Technical Hub Pvt Ltd', palette: ocean },
-  { label: 'Database credential', title: 'MongoDB', detail: 'Certified Associate Developer', palette: jade },
-  { label: 'Current focus', title: 'System Design', detail: 'with Cloud (AWS) & Machine Learning', palette: violet },
+  { label: 'AI SaaS Original', title: 'Resume Analyzer', detail: 'MERN • Gemini 1.5 Pro • Firebase • Live', palette: crimson },
+  { label: 'Healthcare Build', title: 'Book a Doctor', detail: 'JWT • RBAC • REST APIs • Live', palette: amber },
+  { label: 'National Stage', title: 'Smart India Hackathon', detail: 'Participant • Built Alumni-Connect', palette: ocean },
+  { label: 'Virtual Internship', title: 'SmartBridge × APSCHE', detail: '2-Month / 120-Hours MERN Stack Intern', palette: jade },
+  { label: 'Core Architecture', title: 'MERN Stack', detail: 'MongoDB • Express.js • React.js • Node.js', palette: violet },
+  { label: 'Academic Track', title: '8.63 CGPA', detail: 'B.Tech CSE • Vishnu Institute of Technology', palette: amber },
+  { label: 'Primary Language', title: 'Java', detail: 'Certified in Programming in Java', palette: crimson },
+  { label: 'Problem Solving', title: 'DSA', detail: 'Certified • Competitive Programming Practice', palette: jade },
+  { label: 'Data Layer', title: 'MongoDB & MySQL', detail: 'NoSQL & Relational SQL Databases', palette: ocean },
+  { label: 'Developer Toolkit', title: 'Git • VS Code • Postman', detail: 'Version control & API testing', palette: violet },
 ];
 
 /** Slides for the "▶ Play Intro" cinematic sequence. */
@@ -526,44 +475,51 @@ export type IntroSlide = { kicker: string; title: string; lines: string[]; chips
 export const introSlides: IntroSlide[] = [
   {
     kicker: 'Education',
-    title: 'B.Tech · AI & ML',
-    lines: ['Aditya Engineering College, Surampalem', 'October 2023 – Present'],
-    chips: ['CGPA 9.10'],
+    title: 'B.Tech · CSE',
+    lines: ['Vishnu Institute of Technology', '2023 – 2027'],
+    chips: ['CGPA: 8.63'],
   },
   {
     kicker: 'Skills',
-    title: 'Java first.',
-    lines: ['Python, C, C++ · React, Node.js, Express.js', 'PostgreSQL, MongoDB, MySQL · Docker, REST, JWT'],
-    chips: ['Java', 'Python', 'React', 'Node.js', 'Docker', 'PostgreSQL'],
+    title: 'MERN & Java.',
+    lines: ['MongoDB, Express.js, React.js, Node.js', 'Java, JavaScript, HTML, CSS, SQL, MySQL · Git, VS Code, Postman'],
+    chips: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Java', 'DSA'],
   },
   {
-    kicker: 'Training',
-    title: 'The Training Arc',
-    lines: ['One year of intensive Full‑Stack Development training', 'Trainee · Technical Hub Pvt Ltd · May 2025 – June 2026', 'Frontend · Backend · Databases · Deployment'],
+    kicker: 'Experience',
+    title: '120-Hour Internship',
+    lines: [
+      'Full Stack Developer (MERN Stack) Virtual Intern',
+      'SmartBridge Educational Services Pvt. Ltd. × APSCHE · 2-Month',
+      'Scalable project modules · Certificate of Completion',
+    ],
   },
   {
     kicker: 'Projects',
     title: 'Three Originals',
-    lines: ['PolicyGuard AI — 500+ documents, 92% accuracy', 'Payment Gateway — 1,000+ transactions, 99.8% uptime', 'Multi-Tenant SaaS — 50+ tenants, zero unauthorized access'],
+    lines: [
+      'Resume Analyzer — MERN SaaS with Gemini 1.5 Pro & Firebase OAuth',
+      'Book a Doctor — JWT auth, RBAC & RESTful appointment APIs',
+      'Alumni-Connect — Smart India Hackathon student–alumni network',
+    ],
   },
   {
-    kicker: 'Achievements',
+    kicker: 'Highlights',
     title: 'Top Moments',
-    lines: ['Tech Fellow — AlgoUniversity', 'Semi-Finalist — Flipkart GRiD 7.0', 'AIML Branch Topper — 9.24 SGPA'],
-  },
-  {
-    kicker: 'Certified',
-    title: '16 Certifications',
-    lines: ['AWS · MongoDB · Oracle · GitHub · Pearson', 'NPTEL · Cisco · Udemy'],
+    lines: [
+      'Smart India Hackathon Participant',
+      'Certifications in Programming in Java & DSA',
+      'Live Deployments for Resume Analyzer & Book a Doctor',
+    ],
   },
   {
     kicker: 'Current mission',
-    title: 'Now exploring',
-    lines: ['System Design · Cloud Computing (AWS) · Machine Learning'],
+    title: 'Building to Scale',
+    lines: ['MERN Full-Stack Web Applications · Java · Consistent DSA Practice'],
   },
 ];
 
-export type ProfileId = 'sushmita' | 'recruiter' | 'developer' | 'creative';
+export type ProfileId = 'sasidhar' | 'recruiter' | 'developer' | 'creative';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
 
 export const viewerProfiles: {
@@ -574,8 +530,8 @@ export const viewerProfiles: {
   order: SectionId[];
 }[] = [
   {
-    id: 'sushmita',
-    name: 'Sushmita',
+    id: 'sasidhar',
+    name: 'Sasidhar',
     blurb: 'The full series, in order',
     color: '#e5132b',
     order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
@@ -604,9 +560,9 @@ export const viewerProfiles: {
 ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
-  about: { nav: 'About', card: 'About Me', meta: 'The Pilot • Education & training', palette: violet },
+  about: { nav: 'About', card: 'About Me', meta: 'The Pilot • Education & internship', palette: violet },
   journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
-  originals: { nav: 'Originals', card: 'My Projects', meta: `${projects.length} Originals • 2026`, palette: crimson },
+  originals: { nav: 'Originals', card: 'My Projects', meta: `${projects.length} Originals • MERN & AI`, palette: crimson },
   picks: { nav: 'Top Picks', card: 'Top Picks', meta: 'Top 10 from the resume', palette: jade },
   skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Categories`, palette: ocean },
   moments: { nav: 'Moments', card: 'My Achievements', meta: `${achievements.length} Moments • ${certifications.length} Certifications`, palette: crimson },

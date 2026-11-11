@@ -31,6 +31,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
   }, [project.id]);
 
   const more = projects.filter((p) => p.id !== project.id);
+  const metricCols = project.metrics.length <= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5';
 
   return (
     <motion.div className="fixed inset-0 z-[140]" role="dialog" aria-modal="true" aria-labelledby={`title-${project.id}-modal`}>
@@ -91,26 +92,45 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
+            {(project.demo || project.github) && (
               <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
-                  >
-                    GitHub ↗
-                  </a>
-                </Magnetic>
+                {project.demo && (
+                  <Magnetic>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                    >
+                      ▶ Live Demo ↗
+                    </a>
+                  </Magnetic>
+                )}
+                {project.github && (
+                  <Magnetic>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className={
+                        project.demo
+                          ? 'glass flex min-h-12 items-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15'
+                          : 'flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white'
+                      }
+                    >
+                      GitHub ↗
+                    </a>
+                  </Magnetic>
+                )}
               </motion.div>
             )}
 
-            {/* impact */}
+            {/* impact / highlights */}
             <motion.section variants={block} className="mt-12">
-              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Result / Impact</h3>
-              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Architecture &amp; Highlights</h3>
+              <div className={`grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 ${metricCols}`}>
                 {project.metrics.map((m, i) => (
                   <motion.div
                     key={m.label}

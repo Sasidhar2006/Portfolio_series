@@ -40,52 +40,61 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
           </radialGradient>
         </defs>
         <circle cx="290" cy="120" r="130" fill={`url(#g-${project.id})`} />
-        {project.motif === 'shield' && (
-          <g transform="translate(232 40)" fill="none" stroke={a} strokeOpacity="0.85">
-            <path d="M58 0 L116 22 V78 C116 120 90 146 58 160 C26 146 0 120 0 78 V22 Z" strokeWidth="2" />
-            <path d="M58 16 L102 33 V78 C102 111 82 132 58 144 C34 132 14 111 14 78 V33 Z" strokeWidth="1" strokeOpacity="0.4" />
-            {[0, 1, 2, 3, 4].map((i) => (
-              <line key={i} x1="30" x2={i % 2 ? 72 : 86} y1={56 + i * 14} y2={56 + i * 14} strokeWidth="3" strokeLinecap="round" strokeOpacity={0.35 + i * 0.1} />
+        {project.motif === 'resume' && (
+          <g transform="translate(226 36)" fill="none" stroke={a} strokeOpacity="0.85">
+            <rect x="0" y="0" width="118" height="154" rx="10" strokeWidth="2" />
+            <circle cx="28" cy="28" r="12" strokeWidth="1.8" strokeOpacity="0.7" />
+            <line x1="50" x2="96" y1="22" y2="22" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.8" />
+            <line x1="50" x2="82" y1="34" y2="34" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.45" />
+            {[0, 1, 2, 3].map((i) => (
+              <line key={i} x1="18" x2={i % 2 ? 84 : 100} y1={62 + i * 16} y2={62 + i * 16} strokeWidth="2.5" strokeLinecap="round" strokeOpacity={0.35 + i * 0.12} />
             ))}
-            <path d="M40 124 l12 12 l26 -28" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <line x1="-10" x2="128" y1="108" y2="108" strokeWidth="1.5" strokeDasharray="6 4" strokeOpacity="0.8" />
+            <path d="M98 134 l8 -14 l8 14 m-22 -7 h28" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.9" />
           </g>
         )}
-        {project.motif === 'flow' && (
+        {project.motif === 'medical' && (
           <g fill="none" stroke={a}>
-            <rect x="200" y="56" width="150" height="94" rx="12" strokeWidth="2" strokeOpacity="0.85" />
-            <rect x="214" y="72" width="28" height="20" rx="4" strokeOpacity="0.7" />
-            <line x1="214" x2="330" y1="124" y2="124" strokeWidth="3" strokeOpacity="0.4" strokeDasharray="18 8" />
-            <g transform="translate(176 196)" fontFamily="Inter" fontSize="10" fill={a} stroke="none" letterSpacing="2">
-              <circle cx="16" cy="16" r="16" fill="none" stroke={a} strokeWidth="2" />
-              <path d="M34 16 h46" stroke={a} strokeWidth="2" />
-              <circle cx="96" cy="16" r="16" fill="none" stroke={a} strokeWidth="2" strokeOpacity="0.8" />
-              <path d="M112 8 l38 -22 M112 24 l38 22" stroke={a} strokeWidth="2" strokeOpacity="0.6" />
-              <circle cx="166" cy="-18" r="10" fill={a} fillOpacity="0.8" />
-              <circle cx="166" cy="50" r="10" fill="none" stroke={a} strokeWidth="2" strokeOpacity="0.5" />
-            </g>
+            <rect x="208" y="42" width="136" height="136" rx="22" strokeWidth="2" strokeOpacity="0.8" />
+            <path d="M276 74 v72 M240 110 h72" strokeWidth="10" strokeLinecap="round" strokeOpacity="0.28" />
+            <path d="M276 74 v72 M240 110 h72" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.9" />
+            <path
+              d="M170 214 h52 l14 -24 l16 42 l16 -32 l12 14 h92"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeOpacity="0.85"
+            />
+            <circle cx="252" cy="232" r="4" fill={a} fillOpacity="0.9" />
           </g>
         )}
-        {project.motif === 'tenants' && (
+        {project.motif === 'network' && (
           <g fill="none" stroke={a}>
-            {[0, 1, 2].map((r) =>
-              [0, 1, 2, 3].map((c) => (
-                <rect
-                  key={`${r}-${c}`}
-                  x={196 + c * 44}
-                  y={50 + r * 44}
-                  width="34"
-                  height="34"
-                  rx="7"
-                  strokeWidth="1.6"
-                  strokeOpacity={0.25 + ((r + c) % 3) * 0.25}
-                  fill={(r + c) % 4 === 0 ? a : 'none'}
-                  fillOpacity="0.25"
-                />
-              )),
-            )}
-            <path d="M188 200 h190" strokeWidth="2" strokeOpacity="0.7" />
-            <path d="M188 214 h190" strokeWidth="1" strokeOpacity="0.35" />
-            <path d="M188 228 h190" strokeWidth="1" strokeOpacity="0.2" />
+            <line x1="210" y1="84" x2="290" y2="54" strokeWidth="1.6" strokeOpacity="0.45" />
+            <line x1="290" y1="54" x2="352" y2="104" strokeWidth="1.6" strokeOpacity="0.45" />
+            <line x1="210" y1="84" x2="278" y2="132" strokeWidth="2" strokeOpacity="0.7" />
+            <line x1="352" y1="104" x2="278" y2="132" strokeWidth="2" strokeOpacity="0.7" />
+            <line x1="278" y1="132" x2="228" y2="194" strokeWidth="1.6" strokeOpacity="0.55" />
+            <line x1="278" y1="132" x2="342" y2="188" strokeWidth="1.6" strokeOpacity="0.55" />
+            {[
+              { x: 210, y: 84, r: 12, fill: false },
+              { x: 290, y: 54, r: 10, fill: true },
+              { x: 352, y: 104, r: 12, fill: false },
+              { x: 278, y: 132, r: 18, fill: true },
+              { x: 228, y: 194, r: 11, fill: false },
+              { x: 342, y: 188, r: 14, fill: false },
+            ].map((n, idx) => (
+              <circle
+                key={idx}
+                cx={n.x}
+                cy={n.y}
+                r={n.r}
+                strokeWidth="2"
+                strokeOpacity="0.85"
+                fill={n.fill ? a : 'none'}
+                fillOpacity={n.fill ? '0.25' : undefined}
+              />
+            ))}
           </g>
         )}
       </svg>

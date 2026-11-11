@@ -1,6 +1,6 @@
-# SUSHMITA — THE SERIES
+# SASIDHAR — THE SERIES
 
-A cinematic, streaming-inspired portfolio for **Sushmita Dasari**: Full-Stack Developer and B.Tech AI & ML student.
+A cinematic, streaming-inspired portfolio for **Kokkiligadda Sasidhar**: MERN Full Stack Developer and B.Tech CSE student.
 Every section is an episode, every project is an Original, and the whole site plays like a series.
 
 > A personal portfolio with a fictional streaming-platform look. It is not affiliated with Netflix or any other streaming service and uses none of their logos.
@@ -41,7 +41,7 @@ The static site is written to `dist/` and can be deployed as-is to Vercel, Netli
 | Profile order (Recruiter / Developer / Creative) | `viewerProfiles` |
 | Opening studio card text | `profile.originalLabel` |
 
-**Resume:** replace `public/assets/Sushmita_Dasari_Resume.pdf`.
+**Resume:** replace `public/assets/Kokkiligadda_Sasidhar_Resume.pdf`.
 
 **Photo:** replace `pic1.jpeg` (high-res photo) and `pic.png` (background-removed cutout with the same framing), then run:
 
@@ -58,7 +58,7 @@ src/
   data/portfolio.ts        ← single source of truth (from the resume)
   App.tsx                  ← stages: opening → profile select → home; overlays
   components/
-    OpeningSequence        ← black → studio card → SUSHMITA → THE SERIES → portrait → ▶ PLAY
+    OpeningSequence        ← black → studio card → SASIDHAR → THE SERIES → portrait → ▶ PLAY
     ProfileSelector        ← "Who's watching?" (changes section order only)
     Navbar                 ← hide-on-scroll nav, profile switcher, mobile menu
     Hero                   ← billboard: parallax portrait, particles, light streaks, floating chips
@@ -70,7 +70,7 @@ src/
     ProjectModal           ← full-screen project overlay with a shared-element transition
     TopPicks               ← Top 10-style row
     Skills                 ← skill genres; each card shows where the skill appears
-    Achievements           ← award-poster cards + certification rail (links to credentials)
+    Achievements           ← award-poster cards + certification rail
     ResumeViewer/ResumeModal ← designed resume sheet, PDF viewer, download
     FinalCTA               ← TO BE CONTINUED… + contact links
     CustomCursor, fx.tsx   ← cursor states, magnetic buttons, 3D tilt, text reveals, particles
@@ -86,7 +86,7 @@ scripts/build-images.mjs   ← portrait/share-image pipeline (sharp)
 - Hover effects only run on devices with a precise pointer. Touch devices get tap interactions and native swipe rails.
 - The custom cursor appears only with a mouse or trackpad.
 - Overlays close with Esc, and the highlight reel supports Space and the ← → keys.
-- Portraits are responsive WebP files (25–90 KB). Overlays are code-split, and particles pause when they're off screen.
+- Portraits are responsive WebP files. Overlays are code-split, and particles pause when they're off screen.
 
 ## Keyboard shortcuts
 

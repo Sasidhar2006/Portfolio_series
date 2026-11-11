@@ -22,7 +22,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="font-serif text-3xl italic leading-tight text-bone">Every episode, on one page.</p>
           <p className="mt-3 text-sm leading-relaxed text-mist">
-            Education, training, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
+            Education, internship, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <Magnetic className="w-full">
@@ -38,7 +38,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
             <Magnetic className="w-full">
               <a
                 href={profile.resumePdf}
-                download="Sushmita_Dasari_Resume.pdf"
+                download="Kokkiligadda_Sasidhar_Resume.pdf"
                 data-cursor="link"
                 className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15"
               >
@@ -48,7 +48,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
           </div>
           <dl className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
             {[
-              { v: education[0].score.replace('CGPA ', ''), k: 'CGPA' },
+              { v: education[0].score.replace('CGPA: ', '').replace('CGPA ', ''), k: 'CGPA' },
               { v: String(projects.length), k: 'Originals' },
               { v: String(certifications.length), k: 'Certs' },
             ].map((s) => (
@@ -88,6 +88,8 @@ function H({ children }: { children: string }) {
 }
 
 export function ResumeSheet() {
+  const hasDistinctIssuers = certifications.some((c) => c.issuer && c.issuer !== 'Certification');
+
   return (
     <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#121218,#0c0c11)] p-6 ring-1 ring-white/10 sm:p-10">
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-2/70 to-transparent" />
@@ -95,8 +97,14 @@ export function ResumeSheet() {
         <div>
           <p className="text-[10px] font-bold tracking-[0.34em] text-smoke">STARRING</p>
           <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
+          <p className="mt-1.5 text-xs text-smoke">{profile.fullAddress}</p>
         </div>
         <div className="text-xs leading-relaxed text-mist sm:text-right">
+          {profile.phone && (
+            <a href={`tel:${profile.phone}`} className="block hover:text-bone">
+              {profile.phone}
+            </a>
+          )}
           <a href={`mailto:${profile.email}`} className="block hover:text-bone">
             {profile.email}
           </a>
@@ -117,7 +125,8 @@ export function ResumeSheet() {
             <div key={e.school} className="mb-4">
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">
-                  {e.school}, {e.place}
+                  {e.school}
+                  {e.place ? `, ${e.place}` : ''}
                 </p>
                 <p className="text-xs text-smoke">{e.period}</p>
               </div>
@@ -127,15 +136,16 @@ export function ResumeSheet() {
             </div>
           ))}
 
-          <H>Work Experience</H>
+          <H>Experience</H>
           {experience.map((x) => (
             <div key={x.company}>
               <div className="flex flex-wrap justify-between gap-x-3">
-                <p className="text-sm font-semibold text-bone">
-                  {x.company} — {x.role}
-                </p>
+                <p className="text-sm font-semibold text-bone">{x.role}</p>
                 <p className="text-xs text-smoke">{x.period}</p>
               </div>
+              <p className="text-xs text-mist">
+                {x.company} · {x.place}
+              </p>
               <ul className="mt-2 space-y-1.5">
                 {x.points.map((p) => (
                   <li key={p} className="flex gap-2 text-xs leading-relaxed text-mist">
@@ -152,7 +162,19 @@ export function ResumeSheet() {
             <div key={p.id} className="mb-3">
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">{p.title}</p>
-                <p className="text-xs text-smoke">{p.year}</p>
+                <p className="flex items-center gap-2 text-xs text-smoke">
+                  {p.demo && (
+                    <a href={p.demo} target="_blank" rel="noreferrer" className="text-mist hover:text-bone">
+                      Live Demo ↗
+                    </a>
+                  )}
+                  {p.github && (
+                    <a href={p.github} target="_blank" rel="noreferrer" className="text-mist hover:text-bone">
+                      GitHub ↗
+                    </a>
+                  )}
+                  {!p.demo && !p.github && <span>{p.year}</span>}
+                </p>
               </div>
               <p className="text-xs text-mist">{p.stack.join(', ')}</p>
             </div>
@@ -184,9 +206,11 @@ export function ResumeSheet() {
 
           <H>Certifications</H>
           <p className="text-xs leading-relaxed text-mist">
-            {Array.from(new Set(certifications.map((c) => c.issuer)))
-              .map((iss) => `${iss}: ${certifications.filter((c) => c.issuer === iss).map((c) => c.name).join(', ')}`)
-              .join(' · ')}
+            {hasDistinctIssuers
+              ? Array.from(new Set(certifications.map((c) => c.issuer ?? 'Certification')))
+                  .map((iss) => `${iss}: ${certifications.filter((c) => (c.issuer ?? 'Certification') === iss).map((c) => c.name).join(', ')}`)
+                  .join(' · ')
+              : certifications.map((c) => c.name).join(' · ')}
           </p>
         </div>
       </div>

@@ -17,13 +17,15 @@ function Laurel({ side }: { side: 'l' | 'r' }) {
 
 export default function Achievements() {
   const rail = useRef<HTMLDivElement>(null);
-  const issuers = Array.from(new Set(certifications.map((c) => c.issuer)));
+  const issuers = Array.from(new Set(certifications.map((c) => c.issuer).filter((i): i is string => Boolean(i && i !== 'Certification'))));
+  const gridCols = achievements.length <= 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5';
+  const certWidth = certifications.length <= 4 ? 'w-[260px] sm:w-[300px]' : 'w-[230px]';
 
   return (
     <>
       <SectionHeading kicker="Awards season" title="Top Moments" />
 
-      <div className="gutter grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 [perspective:1400px]">
+      <div className={`gutter grid gap-4 ${gridCols} [perspective:1400px]`}>
         {achievements.map((a, i) => (
           <motion.div
             key={a.id}
@@ -54,7 +56,7 @@ export default function Achievements() {
                     data-cursor="link"
                     className="relative mt-auto inline-flex min-h-10 items-center gap-1 pt-5 text-xs font-semibold tracking-wide text-bone underline decoration-[#d9b46a]/60 underline-offset-4 hover:decoration-[#d9b46a]"
                   >
-                    View certificate ↗
+                    {a.linkLabel ?? 'View certificate ↗'}
                   </a>
                 )}
               </article>
@@ -69,30 +71,50 @@ export default function Achievements() {
           <h3 className="font-sans text-lg font-semibold text-bone sm:text-2xl">
             Certified <span className="text-mist">· {certifications.length} credentials</span>
           </h3>
-          <p className="text-xs text-smoke">{issuers.join(' · ')}</p>
+          {issuers.length > 0 && <p className="text-xs text-smoke">{issuers.join(' · ')}</p>}
         </div>
         <div className="group/rail relative">
           <div ref={rail} className="rail gutter flex snap-x gap-3 overflow-x-auto py-5">
-            {certifications.map((c, i) => (
-              <motion.a
-                key={c.name}
-                href={c.link}
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="link"
-                className="group relative flex w-[230px] shrink-0 snap-start flex-col justify-between rounded-xl bg-ink-2 p-4 ring-1 ring-white/10 transition hover:-translate-y-1 hover:ring-white/30"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: Math.min(i, 6) * 0.04, ease: EASE }}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-crimson-2">{c.issuer}</span>
-                  <span className="text-sm text-smoke transition group-hover:text-bone">↗</span>
-                </div>
-                <p className="mt-6 text-sm font-medium leading-snug text-bone">{c.name}</p>
-              </motion.a>
-            ))}
+            {certifications.map((c, i) => {
+              const cardClass = `group relative flex ${certWidth} shrink-0 snap-start flex-col justify-between rounded-xl bg-ink-2 p-4 ring-1 ring-white/10 transition hover:-translate-y-1 hover:ring-white/30`;
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-crimson-2">{c.issuer ?? 'Certification'}</span>
+                    {c.link && <span className="text-sm text-smoke transition group-hover:text-bone">↗</span>}
+                  </div>
+                  <p className="mt-6 text-sm font-medium leading-snug text-bone">{c.name}</p>
+                </>
+              );
+
+              return c.link ? (
+                <motion.a
+                  key={c.name}
+                  href={c.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-cursor="link"
+                  className={cardClass}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: Math.min(i, 6) * 0.04, ease: EASE }}
+                >
+                  {inner}
+                </motion.a>
+              ) : (
+                <motion.article
+                  key={c.name}
+                  className={cardClass}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: Math.min(i, 6) * 0.04, ease: EASE }}
+                >
+                  {inner}
+                </motion.article>
+              );
+            })}
           </div>
           <RailButtons rail={rail} />
         </div>
